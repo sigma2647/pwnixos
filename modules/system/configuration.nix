@@ -128,18 +128,18 @@
   };
 
   # Set up locales (timezone and keyboard layout)
-  time.timeZone = "Europe/Madrid";
-  i18n.defaultLocale = "es_ES.UTF-8";
+  time.timeZone = "Asia/Shanghai";
+  i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "es";
+    keyMap = "us";
   };
 
   # Set up user and enable sudo
   users.users.${user} = {
     isNormalUser = true;
     extraGroups = ["input" "wheel" "networkmanager" "libvirtd" "wireshark"];
-    initialHashedPassword = "$6$wqCHereET3WM6UIA$XeJIgGkmO2/zAkktN2JCx5hLNS3kSj6seVQBdSWoMeJ5MOrIha6B/HiDjHI4oKDKYhYVwjgQFqGpncU6OI7Ud/"; # password: d3fault
+    # initialHashedPassword = "$6$wqCHereET3WM6UIA$XeJIgGkmO2/zAkktN2JCx5hLNS3kSj6seVQBdSWoMeJ5MOrIha6B/HiDjHI4oKDKYhYVwjgQFqGpncU6OI7Ud/"; # password: d3fault
     shell = pkgs.zsh;
   };
 
