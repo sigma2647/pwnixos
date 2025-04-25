@@ -48,6 +48,23 @@ in {
       };
     };
 
+
+      # 安装必要的系统级软件包
+  environment.systemPackages = with pkgs; [
+    open-vm-tools
+    # 或 open-vm-tools-desktop
+    xorg.xwayland # 确保 XWayland 已安装
+    # 其他系统级软件包
+  ];
+
+  # 配置 X 服务器和 Wayland
+  services.xserver.enable = true;
+  services.xserver.displayManager.sessionCommands = ''
+    exec dbus-launch --exit-with-session hyprland
+  '';
+  services.xserver.displayManager.defaultSession = "none+hyprland";
+  services.xserver.videoDrivers = [ "vmwgfx" ]; # 显卡驱动
+
     services.hyprpaper = {
       enable = true;
       settings = {
