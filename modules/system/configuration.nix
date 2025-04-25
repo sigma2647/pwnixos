@@ -134,8 +134,6 @@
       settings.trusted-users = ["root" "sigma" "lawrence"];
     };
 
-  };
-
   # Boot settings: clean /tmp/, latest kernel and enable bootloader
   boot = {
     tmp.cleanOnBoot = true;
